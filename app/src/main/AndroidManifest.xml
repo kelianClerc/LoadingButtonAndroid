@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="br.com.simplepass.loadingbuttonsample.MainActivity">
+        <activity android:name="br.com.simplepass.loadingbuttonsample.ThirdActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name="br.com.simplepass.loadingbuttonsample.SecondActivity" />
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

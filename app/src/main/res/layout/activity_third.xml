@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressMaterialButton
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="10dp"
+        android:text="Test 0"
+        app:material_spinning_bar_width="3dp"
+        app:material_spinning_bar_padding="4dp"
+        app:material_initialCornerAngle="50dp"
+        app:material_finalCornerAngle="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        app:elevation="0dp"
+        app:material_backgroundTint="?attr/colorAccent"
+        app:material_spinning_bar_tint="?attr/colorPrimary"
+        />
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Stop"
+        />
+</LinearLayout>
