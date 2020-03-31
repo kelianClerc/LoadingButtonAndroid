@@ -7,4 +7,14 @@
         <attr name="initialCornerAngle" format="dimension"/>
         <attr name="finalCornerAngle" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="CircularProgressMaterialButton">
+        <attr name="material_spinning_bar_width" format="dimension"/>
+        <attr name="material_spinning_bar_color" format="color"/>
+        <attr name="material_spinning_bar_padding" format="dimension"/>
+        <attr name="material_initialCornerAngle" format="dimension"/>
+        <attr name="material_finalCornerAngle" format="dimension"/>
+        <attr name="material_backgroundTint" format="reference" />
+        <attr name="material_spinning_bar_tint" format="reference"/>
+    </declare-styleable>
 </resources>

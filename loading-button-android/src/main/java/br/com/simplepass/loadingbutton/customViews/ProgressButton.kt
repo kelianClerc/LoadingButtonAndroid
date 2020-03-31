@@ -25,6 +25,8 @@ import br.com.simplepass.loadingbutton.updateHeight
 import br.com.simplepass.loadingbutton.updateWidth
 import br.com.simplepass.loadingbutton.utils.addLifecycleObserver
 import br.com.simplepass.loadingbutton.utils.parseGradientDrawable
+import com.google.android.material.button.MaterialButton
+import kotlin.math.roundToInt
 
 interface ProgressButton : Drawable.Callback, LifecycleObserver {
     var paddingProgress: Float
@@ -79,7 +81,7 @@ interface ProgressButton : Drawable.Callback, LifecycleObserver {
     fun revertAnimation() {
         revertAnimation { }
     }
-    
+
     fun doneLoadingAnimation(fillColor: Int, bitmap: Bitmap)
 
     fun startRevealAnimation()
@@ -166,6 +168,28 @@ internal fun cornerAnimator(drawable: Drawable, initial: Float, final: Float) =
         is GradientDrawable -> ObjectAnimator.ofFloat(drawable, "cornerRadius", initial, final)
         else -> ObjectAnimator.ofFloat(parseGradientDrawable(drawable), "cornerRadius", initial, final)
     }
+
+internal fun cornerAnimator(
+    button: MaterialButton,
+    initial: Float,
+    final: Float
+): Animator = ValueAnimator.ofFloat(initial, final).apply {
+    addUpdateListener { value ->
+        println("Set button corner radius to ${value.animatedValue}")
+        button.cornerRadius = (value.animatedValue as Float).roundToInt()
+    }
+}
+
+internal fun textAnimator(
+    button: MaterialButton,
+    initial: Float,
+    final: Float
+): Animator = ValueAnimator.ofFloat(initial, final).apply {
+    addUpdateListener { value ->
+        println("Set button corner radius to ${value.animatedValue}")
+        button.cornerRadius = (value.animatedValue as Float).roundToInt()
+    }
+}
 
 internal fun widthAnimator(view: View, initial: Int, final: Int) =
     ValueAnimator.ofInt(initial, final).apply {

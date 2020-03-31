@@ -3,6 +3,7 @@ package br.com.simplepass.loadingbutton.presentation
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Handler
+import br.com.simplepass.loadingbutton.customViews.CircularProgressMaterialButton
 import br.com.simplepass.loadingbutton.customViews.ProgressButton
 
 enum class State {
@@ -20,10 +21,15 @@ enum class State {
 
 internal class ProgressButtonPresenter(private val view: ProgressButton) {
     var state: State = State.BEFORE_DRAW
+    private var content : CharSequence? = null
 
     fun morphStart() {
         view.run {
             hideInitialState()
+            if (view is CircularProgressMaterialButton) {
+                content = view.text
+                view.text = ""
+            }
             setClickable(false)
             setCompoundDrawables(null, null, null, null)
         }
@@ -50,6 +56,9 @@ internal class ProgressButtonPresenter(private val view: ProgressButton) {
     fun morphRevertEnd() {
         view.setClickable(true)
         view.recoverInitialState()
+        if (view is CircularProgressMaterialButton) {
+            view.text = content
+        }
         state = State.IDLE
     }
 
